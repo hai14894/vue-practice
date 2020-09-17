@@ -1,6 +1,6 @@
 <template>
   <div id='App'>
-    <Todos v-bind:todos="todos"/>
+    <Todos v-bind:todos="todos" v-on:is-completed="isCompleted"/>
 
   </div>
   
@@ -25,14 +25,19 @@ export default {
         {
           id: 2,
           title : "task 2",
-          completed: true
+          completed: false
         },
         {
           id: 3,
           title : "task 3",
-          completed: true
+          completed: false
         }
       ]
+    }
+  },
+  methods:{
+    isCompleted(id) {
+      this.todos[id - 1].completed = !this.todos[id - 1].completed
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div v-for="todo in todos" v-bind:key="todo.id">
-    <TodoItem v-bind:todo="todo"/>
+    <TodoItem v-bind:todo="todo" @update-todo="update" v-on:is-completed="$emit('is-completed',todo.id)"/>
   </div>
 </template>
 <script>
@@ -10,6 +10,11 @@ export default {
   props: ["todos"],
   components:{
       TodoItem
+  },
+  methods:{
+      update(completed){
+          this.todo.completed = completed
+      }
   }
 };
 </script>
