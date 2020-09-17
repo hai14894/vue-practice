@@ -1,6 +1,6 @@
 <template>
   <div v-for="todo in todos" v-bind:key="todo.id">
-    <TodoItem 
+    <TodoItem
         v-bind:todo="todo"
         @update-todo="update" 
         v-on:is-completed="$emit('is-completed',todo.id)" 
@@ -24,4 +24,6 @@ export default {
 </script>
 
 <style scoped>
+
+    
 </style>
