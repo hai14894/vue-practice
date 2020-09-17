@@ -1,6 +1,10 @@
 <template>
   <div v-for="todo in todos" v-bind:key="todo.id">
-    <TodoItem v-bind:todo="todo" @update-todo="update" v-on:is-completed="$emit('is-completed',todo.id)"/>
+    <TodoItem 
+        v-bind:todo="todo"
+        @update-todo="update" 
+        v-on:is-completed="$emit('is-completed',todo.id)" 
+        v-on:delete="$emit('delete', todo.id)"/>
   </div>
 </template>
 <script>

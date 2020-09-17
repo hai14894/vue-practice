@@ -3,6 +3,7 @@
     <p>
       <input type="checkbox" @change="$emit('is-completed', todo.id)" />
       {{todo.title}}
+      <button @click="$emit('delete', todo.id)">x</button>
     </p>
   </div>
 </template>

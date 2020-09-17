@@ -1,6 +1,6 @@
 <template>
   <div id='App'>
-    <Todos v-bind:todos="todos" v-on:is-completed="isCompleted"/>
+    <Todos v-bind:todos="todos" v-on:is-completed="isCompleted" v-on:delete="deleteItem"/>
 
   </div>
   
@@ -38,6 +38,9 @@ export default {
   methods:{
     isCompleted(id) {
       this.todos[id - 1].completed = !this.todos[id - 1].completed
+    },
+    deleteItem(id){
+      this.todos = this.todos.filter(todo => todo.id !== id)
     }
   }
 }
