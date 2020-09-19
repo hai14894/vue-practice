@@ -39,7 +39,7 @@ export default {
   },
   created() {
     axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(response => this.todos = response.data)
+        .then(response => this.todos = response.data.map(item => ({...item, completed: false})))
         .catch(e => console.log(e))
   }
 }
